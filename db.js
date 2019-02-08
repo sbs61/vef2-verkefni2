@@ -54,8 +54,24 @@ async function deleteData(id) {
   }
 }
 
+async function updateData(id) {
+  const client = new Client({ connectionString });
+
+  await client.connect();
+
+  try {
+    await client.query(`UPDATE applications SET unnin = true, updated=current_timestamp WHERE id=${id}`);
+  } catch (err) {
+    console.error('Error selecting form data');
+    throw err;
+  } finally {
+    await client.end();
+  }
+}
+
 module.exports = {
   insert,
   fetchData,
   deleteData,
+  updateData,
 };

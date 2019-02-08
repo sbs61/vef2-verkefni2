@@ -7,6 +7,8 @@ const { fetchData } = require('./db');
 
 const { deleteData } = require('./db');
 
+const { updateData } = require('./db');
+
 function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
 }
@@ -23,20 +25,12 @@ function app(req, res) {
   });
 }
 
-/*
 async function deleteApplication(id) {
   await deleteData(id);
-} */
+}
 
-async function deleteApplication(req, res) {
-  const id = req.body.id;
-
-  try {
-    await database.deleteData(xss(id));
-  } catch (e) {
-    throw e;
-  }
-  res.redirect('/applications');
+async function updateApplication(id) {
+  await updateData(id);
 }
 
 async function getApplications(req, res) {
@@ -47,10 +41,12 @@ async function getApplications(req, res) {
     rows,
     test,
     deleteApplication,
+    updateApplication,
   });
 }
 
 
 router.get('/', catchErrors(app));
 router.get('/applications', catchErrors(getApplications));
+
 module.exports = router;
