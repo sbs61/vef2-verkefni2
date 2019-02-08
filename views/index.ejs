@@ -1,0 +1,87 @@
+<%- include('header') -%>
+
+<% function isError(error, param){
+  for(var e of error){
+    if(e.param === param)
+      return true;
+  }
+  return false;
+} %>
+
+<form method="post" action="/register">
+    <h1>Atvinnuumsókn</h1>
+    <div class=application__row>
+    <label for="name">Nafn</label>
+    <% if(isError(errors, 'name')){ %>
+      <input class="error" id="name" name="name" value="<%= data.name%>">
+    <% } else { %>
+      <input id="name" name="name" value="<%= data.name%>">
+    <% } %>
+    </div>
+
+    <div class=application__row>
+    <label for="email">Netfang</label>
+    <% if(isError(errors, 'email')){ %>
+      <input class="error" id="email" name="email" value="<%= data.email%>">
+    <% } else { %>
+        <input id="email" name="email" value="<%= data.email%>">
+    <% } %>
+    </div>
+
+    <div class=application__row>
+    <label for="phone">Sími</label>
+    <% if(isError(errors, 'phone')){ %>
+      <input class="error" id="phone" name="phone" value="<%= data.phone%>">
+    <% } else { %>
+      <input id="phone" name="phone" value="<%= data.phone%>">
+    <% } %>
+    </div>
+
+    <div class=application__row>
+    <label for="info">Kynning á þér</label>
+    <% if(isError(errors, 'info')){ %>
+    <textarea class="error" name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
+    <% } else { %>
+    <textarea name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
+    <% } %>
+    </div>
+
+    <h2>Starf sem sótt er um:</h2>
+
+    <% if(isError(errors, 'radio')){ %>
+    <div class="application__row error">
+        <label><input id="job" type="radio" name="optradio">Forritari</label>
+      </div>
+      <div class="application__row error">
+        <label><input id="job" type="radio" name="optradio">Hönnuður</label>
+      </div>
+      <div class="application__row error">
+        <label><input id="job" type="radio" name="optradio">Verkefnastjóri</label>
+      </div> 
+      <% } else { %>
+      <div class="application__row">
+        <label><input id="job" type="radio" name="optradio">Forritari</label>
+      </div>
+      <div class="application__row">
+        <label><input id="job" type="radio" name="optradio">Hönnuður</label>
+      </div>
+      <div class="application__row">
+        <label><input id="job" type="radio" name="optradio">Verkefnastjóri</label>
+      </div> 
+      <% } %>
+      
+
+    <button class="application__submit">Senda umsókn</button>
+</form>
+
+<% if(errors.length !== 0) { %>
+<ul>
+  <h2>Vandræði við að senda umsókn:</h2>
+  <% errors.forEach((error) => { %>
+    <li><%= error.msg %></li>
+  <% }); %>
+</ul>
+<% } %>
+
+
+<%- include('footer') -%>

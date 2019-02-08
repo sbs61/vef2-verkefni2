@@ -1,0 +1,14 @@
+<%- include('header') -%>
+
+<h1>Atvinnuumsóknir</h1>
+
+<% rows.forEach((a) => { %>
+<div class="application">
+    <h2 class="application__name"><%= a.name%></h2>
+    <a class="application__email" href="mailto:<%= a.email%>"><%= a.email%></a>
+    <p class="application__created">Umsókn send: <%= a.created%></p>
+    <p  class="application__text"><%= a.texti%></p>
+</div>
+<% }); %>
+
+<%- include('footer') -%>

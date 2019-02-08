@@ -14,3 +14,47 @@ html {
 }
 
 /* todo útfæra útlit */
+
+body{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+h1 {
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  margin-bottom: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.application__row {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+label {
+  width: 10%;
+}
+
+input {
+  flex-grow: 1;
+}
+
+textarea {
+  flex-grow: 1;
+}
+
+.application__submit {
+  width: 20%;
+  margin-bottom: 1em;
+}
+
+.error {
+  background-color: rgba(255,0,0,0.3);
+}
