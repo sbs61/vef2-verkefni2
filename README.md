@@ -1,3 +1,16 @@
+# Athugasemd
+
+Náði ekki að láta Vinna umsókn og Eyða umsókn takkana virka rétt. Reyndi að útfæra virkni með því að kalla á aðferðir úr applications.ejs með onClick aðferðinni í button. Vildi kalla á updateApplication og deleteApplication í applications.js sem uppfæra og eyða gögnum rétt í gagnagrunninum með aðferðum sem útfærðar eru í db.js.  
+Þegar eg geri það þá hinsvegar kallast sjálfkrafa á báðar aðferðirnar úr onClick aðferðinni um leið og ég ræsi síðuna þannig ég skipti kóðanum í applications.ejs út fyrir test aðferð svo það eyðist ekki allt  úr gagnagrunninum þegar verið er að fara yfir.  
+Ég kláraði sem sagt að klára að gera alla virknina en náði ekki að kalla á aðferðirnar  rétt. Reyndi líka að útfæra þetta með JSOM en fékk það ekki heldur til að virka.
+
+
+# Keyrsla
+npm install 
+aðlaga .env file
+npm setup  
+npm start  
+
 # Verkefni 2
 
 Verkefni 2 snýst um að setja upp vef sem bíður upp á senda inn atvinnuumsóknir ásamt síðu sem listar upp allar umsóknir.
