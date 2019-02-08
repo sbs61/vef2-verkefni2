@@ -37,7 +37,23 @@ async function fetchData() {
   }
 }
 
+async function deleteData(id) {
+  const client = new Client({ connectionString });
+
+  await client.connect();
+
+  try {
+    await client.query(`DELETE FROM applications WHERE id=${id}`);
+  } catch (err) {
+    console.error('Error selecting form data');
+    throw err;
+  } finally {
+    await client.end();
+  }
+}
+
 module.exports = {
   insert,
   fetchData,
+  deleteData,
 };

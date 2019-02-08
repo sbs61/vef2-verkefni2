@@ -8,70 +8,76 @@
   return false;
 } %>
 
-<form method="post" action="/register">
+<form class="form" method="post" action="/register">
     <h1>Atvinnuumsókn</h1>
     <div class=application__row>
     <label for="name">Nafn</label>
     <% if(isError(errors, 'name')){ %>
-      <input class="error" id="name" name="name" value="<%= data.name%>">
+    <input class="text error" id="name" name="name" value="<%= data.name%>">
     <% } else { %>
-      <input id="name" name="name" value="<%= data.name%>">
+      <input class="text" id="name" name="name" value="<%= data.name%>">
     <% } %>
     </div>
 
     <div class=application__row>
     <label for="email">Netfang</label>
     <% if(isError(errors, 'email')){ %>
-      <input class="error" id="email" name="email" value="<%= data.email%>">
+      <input class="text error" id="email" name="email" value="<%= data.email%>">
     <% } else { %>
-        <input id="email" name="email" value="<%= data.email%>">
+        <input class="text" id="email" name="email" value="<%= data.email%>">
     <% } %>
     </div>
 
     <div class=application__row>
     <label for="phone">Sími</label>
     <% if(isError(errors, 'phone')){ %>
-      <input class="error" id="phone" name="phone" value="<%= data.phone%>">
+      <input class="text error" id="phone" name="phone" value="<%= data.phone%>">
     <% } else { %>
-      <input id="phone" name="phone" value="<%= data.phone%>">
+      <input class="text" id="phone" name="phone" value="<%= data.phone%>">
     <% } %>
     </div>
 
     <div class=application__row>
     <label for="info">Kynning á þér</label>
     <% if(isError(errors, 'info')){ %>
-    <textarea class="error" name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
+    <textarea class="text error" name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
     <% } else { %>
-    <textarea name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
+    <textarea class="text" name="info" id="info" cols="30" rows="5" ><%= data.info%></textarea>
     <% } %>
     </div>
 
     <h2>Starf sem sótt er um:</h2>
 
     <% if(isError(errors, 'radio')){ %>
-    <div class="application__row error">
-        <label><input id="job" type="radio" name="optradio">Forritari</label>
+    <div class="radio__row error">
+      <input class="radio" id="job" type="radio" name="optradio">
+      <label for="radio">Forritari</label>
       </div>
-      <div class="application__row error">
-        <label><input id="job" type="radio" name="optradio">Hönnuður</label>
+      <div class="radio__row error">
+      <input class="radio" id="job" type="radio" name="optradio">
+      <label for="radio">Hönnuður</label>
       </div>
-      <div class="application__row error">
-        <label><input id="job" type="radio" name="optradio">Verkefnastjóri</label>
+      <div class="radio__row error">
+      <input class="radio" id="job" type="radio" name="optradio">
+      <label for="radio">Verkefnastjóri</label>
       </div> 
       <% } else { %>
-      <div class="application__row">
-        <label><input id="job" type="radio" name="optradio">Forritari</label>
+      <div class="radio__row">
+          <input class="radio" id="job" type="radio" name="optradio">
+          <label for="radio">Forritari</label>
       </div>
-      <div class="application__row">
-        <label><input id="job" type="radio" name="optradio">Hönnuður</label>
+      <div class="radio__row">
+          <input class="radio" id="job" type="radio" name="optradio">
+          <label for="radio">Hönnuður</label>
       </div>
-      <div class="application__row">
-        <label><input id="job" type="radio" name="optradio">Verkefnastjóri</label>
+      <div class="radio__row">
+          <input class="radio" id="job" type="radio" name="optradio">
+          <label for="radio">Verkefnastjóri</label>
       </div> 
       <% } %>
       
 
-    <button class="application__submit">Senda umsókn</button>
+    <button class="btn">Senda umsókn</button>
 </form>
 
 <% if(errors.length !== 0) { %>
