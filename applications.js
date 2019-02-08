@@ -16,22 +16,23 @@ function test(id) {
   // eslint-disable-next-line no-console
   console.log(`id nr${id}`);
 }
-
-/* todo útfæra */
 function app(req, res) {
   res.render('applications', {
     title: 'Umsóknir',
   });
 }
 
+// aðferð sem tekur inn id á umsókn og eyðir henni úr gagnagrunninum
 async function deleteApplication(id) {
   await deleteData(id);
 }
 
+// aðferð sem tekur inn id á umsókn og uppfærir stöðu hennar í "unnin"
 async function updateApplication(id) {
   await updateData(id);
 }
 
+// sæki allar umsóknirnar og rendera applications síðuna
 async function getApplications(req, res) {
   const rows = await fetchData();
 

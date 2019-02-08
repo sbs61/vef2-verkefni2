@@ -21,6 +21,7 @@ async function insert(data) {
   }
 }
 
+// sæki gögnin úr gagnagrunninum
 async function fetchData() {
   const client = new Client({ connectionString });
 
@@ -39,6 +40,7 @@ async function fetchData() {
   }
 }
 
+// eyði umsókn með viðeigandi id úr gagnagrunninum
 async function deleteData(id) {
   const client = new Client({ connectionString });
 
@@ -54,6 +56,7 @@ async function deleteData(id) {
   }
 }
 
+// uppfæri umsókn með viðeigandi id
 async function updateData(id) {
   const client = new Client({ connectionString });
 
