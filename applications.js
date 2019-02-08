@@ -4,10 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 const { fetchData } = require('./db');
-
 const { deleteData } = require('./db');
-
 const { updateData } = require('./db');
+
 
 function catchErrors(fn) {
   return (req, res, next) => fn(req, res, next).catch(next);
