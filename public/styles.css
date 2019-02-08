@@ -97,6 +97,7 @@ label {
   height: 3em;
   width: 10em;
   transition: 300ms ease-in;
+  font-size: 1em;
 }
 
 .btn:hover {

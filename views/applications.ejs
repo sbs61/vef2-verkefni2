@@ -6,11 +6,11 @@
 <div class="application">
     <h2 class="application__name"><%= a.name%></h2>
     <a class="application__email" href="mailto:<%= a.email%>"><%= a.email%></a>
-    <p class="application__created">Umsókn send: <%= a.created%></p>
+    <p class="application__created">Umsókn send: <%= a.created.toISOString()%></p>
     <p  class="application__text"><%= a.texti%></p>
     <div class="application__buttons">
-        <button class="btn finish" id="finish" name="finish" onClick="<% test(a.id) %>">Vinna umsókn</button>
-        <button class="btn delete" id="delete" name="delete" onClick="<% test(a.id) %>">Eyða umsókn</button>
+        <button class="btn finish" id="finish" name="finish" click="<% test(a.id) %>">Vinna umsókn</button>
+        <button class="btn delete" id="delete" name="delete" click="<% test(a.id) %>">Eyða umsókn</button>
     </div>
 </div>
 <% }); %>
