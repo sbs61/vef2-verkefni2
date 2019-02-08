@@ -3,8 +3,6 @@ const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 const { sanitize } = require('express-validator/filter');
 
-const title = 'Atvinnuumsókn';
-
 const { insert } = require('./db');
 
 const router = express.Router();
@@ -34,7 +32,7 @@ function form(req, res) {
   res.render('index', {
     data,
     errors: [],
-    title,
+    title: 'Atvinnuumsókn',
   });
 }
 
@@ -60,7 +58,7 @@ async function register(req, res) {
     res.render('index', {
       data,
       errors: errorMessages,
-      title,
+      title: 'Atvinnuumsókn',
     });
   } else {
     try {
@@ -69,7 +67,9 @@ async function register(req, res) {
       console.error('Gat ekki búið til nemenda', name, e);
       throw e;
     }
-    res.render('thanks');
+    res.render('thanks', {
+      title: 'Umsókn móttekin',
+    });
   }
 }
 
