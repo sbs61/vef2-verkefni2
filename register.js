@@ -17,7 +17,7 @@ const validation = [
   check('email').isEmail().withMessage('Netfang verður að vera netfang'),
   check('phone').isLength({ min: 7 }).withMessage('Símanúmer verður að vera 7 tölustafir'),
   check('info').isLength({ min: 100 }).withMessage('Kynning verður að vera að minnsta kosti 100 stafir'),
-  check('radio').custom((value, { req }) => value !== req.body.optradio).withMessage('Velja verður starf'),
+  check('job').custom((value, { req }) => value !== req.body.optradio).withMessage('Velja verður starf'),
 ];
 
 const sanitazion = [

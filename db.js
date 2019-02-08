@@ -13,8 +13,10 @@ async function insert(data) {
     const values = [data.name, data.email, data.phone, data.info, data.job];
 
     const res = await client.query(query, values);
+    // eslint-disable-next-line no-console
     console.log(res.rows);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.log(err);
   }
 }

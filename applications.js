@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 const express = require('express');
 
 const router = express.Router();
@@ -11,7 +12,8 @@ function catchErrors(fn) {
 }
 
 function test(id) {
-  console.log('id nr' + id);
+  // eslint-disable-next-line no-console
+  console.log(`id nr${id}`);
 }
 
 /* todo útfæra */
@@ -21,8 +23,20 @@ function app(req, res) {
   });
 }
 
+/*
 async function deleteApplication(id) {
   await deleteData(id);
+} */
+
+async function deleteApplication(req, res) {
+  const id = req.body.id;
+
+  try {
+    await database.deleteData(xss(id));
+  } catch (e) {
+    throw e;
+  }
+  res.redirect('/applications');
 }
 
 async function getApplications(req, res) {
